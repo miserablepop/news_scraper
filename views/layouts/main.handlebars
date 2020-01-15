@@ -2,16 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-
+		<link rel="stylesheet" href="public/css/style.css" type="text/css" />
+		<script src="https://code.jquery.com/jquery.js"></script>
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 		<title>Mongo Database News Scraper</title>
-		<script src="https://code.jquery.com/jquery.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
 	<body>
-		{{{ body }}}
+		<div class="ui fixed inverted menu">
+			<div class="ui container">
+				<a href="#" class="header item">Mongo Scraper</a>
+				<a href="#" class="item">Home</a>
+				<a href="#" class="item">Saved Articles</a>        
+			</div>
+		</div>
+
+		<div class="ui main text container">
+			{{{ body }}}
+		</div>
+		
 	</body>
 </html>

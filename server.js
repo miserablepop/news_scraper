@@ -1,8 +1,20 @@
 var express = require("express");
+var logger = require("morgan");
+var mongoose = require("mongoose");
+
+// Tools for scraping articles
+var axios = require("axios");
+var cheerio = require("cheerio");
+
+// Require all models
+var db = require("./models");
 
 var PORT = process.env.PORT || 8080;
 
 var app = express();
+
+// Use morgan logger for logging requests
+app.use(logger("dev"));
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
@@ -21,6 +33,9 @@ app.set("view engine", "handlebars");
 var routes = require("./controllers/newsController");
 
 app.use(routes);
+
+// Connect to Mongo DB
+mongoose.connect("mongodb://localhost/newsArticleScraper", { useNewUrlParser: true});
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
