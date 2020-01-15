@@ -35,7 +35,8 @@ var routes = require("./controllers/newsController");
 app.use(routes);
 
 // Connect to Mongo DB
-mongoose.connect("mongodb://localhost/newsArticleScraper", { useNewUrlParser: true});
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(MONGODB_URI);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {

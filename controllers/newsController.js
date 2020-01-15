@@ -13,6 +13,7 @@ router.get("/scrape", function(req, res){
 
     axios.get("https://www.nytimes.com").then(function(res){
         var $ = cheerio.load(res.data);
+        $("article")
     })
 })
 
