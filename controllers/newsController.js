@@ -76,11 +76,67 @@ router.get("/api/articles", function (req, res) {
 
 // Route for removing all Articles from the db
 router.delete("/api/articles", function (req, res) {
-    // Remove every document in the Articles collection
+    
     db.Article.remove({})
         .then(function (dbArticle) {
-            // If we were able to successfully remove Articles, send them back to the client
+            
             res.json(dbArticle);
+        })
+        .catch(function (err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+});
+
+// Route for deleting all saved articles 
+app.delete("/api/saved", function (req, res) {
+    
+    db.Save.remove({})
+        .then(function (dbArticle) {
+            
+            res.json(dbArticle);
+        })
+        .catch(function (err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+});
+
+// Route for deleting all notes
+app.delete("/api/notes", function (req, res) {
+    
+    db.Note.remove({})
+        .then(function (dbArticle) {
+            
+            res.json(dbArticle);
+        })
+        .catch(function (err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+});
+
+// Route for getting all saved articles
+app.get("/api/saved", function (req, res) {
+    
+    db.Save.find({})
+        .then(function (dbArticle) {
+            
+            res.json(dbArticle);
+        })
+        .catch(function (err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+});
+
+//Route to find specific article for saving
+app.get("/api/articles/:id", function (req, res) {
+    db.Article.findOne({ _id: req.params.id })
+        .then(function (dbArticle) {
+            
+            res.json(dbArticle);
+            
         })
         .catch(function (err) {
             // If an error occurred, send it to the client
