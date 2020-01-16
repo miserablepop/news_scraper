@@ -1,13 +1,8 @@
-<nav>
-	<div class="nav-wrapper light-blue darken-3">
-		<a href="#!" class="brand-logo center">NPR News Scraper</a>
-		<ul id="nav-mobile" class="left hide-on-med-and-down">
-			<li><a href="">Home</a></li>
-			<li><a href="badges.html">Saved Articles</a></li>
-		</ul>
-		<ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="waves-effect waves-light btn blue-grey lighten-1" id="newScrape">SCRAPE NEW ARTICLES!</a></li>
-            <li><a class="waves-effect waves-light btn blue-grey lighten-1" id="clearScrapedArticles">CLEAR SCRAPED ARTILCES</a></li>
-		</ul>
-	</div>
-</nav>
+<div class="container">
+	<ul class="collapsible popout" id="scrapeResults">
+		{{#each art}}
+		{{/each}}
+	</ul>
+</div>
+
+<script src="/js/index.js"></script>
