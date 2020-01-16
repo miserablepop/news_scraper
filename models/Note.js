@@ -5,8 +5,6 @@ var Schema = mongoose.Schema;
 
 // Creating a newSchema object using the Schema constuctor
 var NoteSchema = new Schema({
-   
-    title: String,
 
     body: String
 });

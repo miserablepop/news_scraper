@@ -49,9 +49,9 @@ router.get("/scrape", function(req, res){
                 });
         });
 
-        res.send("Scrape Complete");
-    })
-})
+        // res.send("Scrape Complete");
+    });
+});
 
 // Export routes for server.js to use.
 module.exports = router;

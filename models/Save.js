@@ -4,8 +4,8 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Creating a newSchema object using the Schema constuctor
-var ArticlesSchema = new Schema({
-    
+var SaveSchema = new Schema({
+
     title: {
         type: String,
         required: true
@@ -19,11 +19,16 @@ var ArticlesSchema = new Schema({
     summary: {
         type: String,
         required: true
+    },
+
+    note: {
+        type: Schema.Types.ObjectId,
+        ref: "Note"
     }
 });
 
 // Creating the model from the above schema 
-var Article = mongoose.model("Article", ArticlesSchema);
+var Note = mongoose.model("Save", SaveSchema);
 
 // Exporting the model
-module.exports = Article;
+module.exports = Save;
