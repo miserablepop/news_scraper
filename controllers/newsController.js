@@ -61,7 +61,7 @@ router.get("/scrape", function(req, res){
 });
 
 // Route for getting all Articles from the db
-app.get("/api/articles", function (req, res) {
+router.get("/articles", function (req, res) {
     // Grab every document in the Articles collection
     db.Article.find({})
         .then(function (dbArticle) {
@@ -75,7 +75,7 @@ app.get("/api/articles", function (req, res) {
 });
 
 // Route for removing all Articles from the db
-app.delete("/api/articles", function (req, res) {
+router.delete("/articles", function (req, res) {
     // Remove every document in the Articles collection
     db.Article.remove({})
         .then(function (dbArticle) {
