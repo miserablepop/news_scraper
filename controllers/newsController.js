@@ -18,7 +18,7 @@ router.get("/saved", function(req, res){
 });
 
  // A GET route for scraping the NPR site
-router.get("/scrape", function(req, res){
+router.get("/api/scrape", function(req, res){
 
     axios.get("https://www.npr.org/").then(function(response){
         var $ = cheerio.load(response.data);
@@ -61,7 +61,7 @@ router.get("/scrape", function(req, res){
 });
 
 // Route for getting all Articles from the db
-router.get("/articles", function (req, res) {
+router.get("/api/articles", function (req, res) {
     // Grab every document in the Articles collection
     db.Article.find({})
         .then(function (dbArticle) {
@@ -75,7 +75,7 @@ router.get("/articles", function (req, res) {
 });
 
 // Route for removing all Articles from the db
-router.delete("/articles", function (req, res) {
+router.delete("/api/articles", function (req, res) {
     // Remove every document in the Articles collection
     db.Article.remove({})
         .then(function (dbArticle) {
