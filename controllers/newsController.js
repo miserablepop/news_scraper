@@ -11,6 +11,10 @@ router.get("/", function(req, res){
     res.render("index");
 });
 
+router.get("/saved", function(req, res){
+    res.render("saved");
+});
+
 router.get("/scrape", function(req, res){
 
     axios.get("https://www.npr.org/").then(function(response){
