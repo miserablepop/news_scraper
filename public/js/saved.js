@@ -96,3 +96,40 @@ var API = {
     }
 };
 
+var initSaved = function () {
+    $("#savedResults").empty();
+    API.getSaves().then(function (data) {
+        console.log(data);
+        if (data.length > 0) {
+            var $saves = data.map(function (artic) {
+                var $li = $("<li>");
+    
+                var deleteButton = $("<button>").addClass("buttonMargin btn-small waves-effect waves-light right deleteIt").attr("type", "submit").attr("name", "action").text("Delete From Saved");
+                var noteButton = $("<button>").addClass("buttonMargin btn-small waves-effect waves-light modal-trigger right indigo addNote").attr("type", "submit").attr("name", "action").text("Add Note").attr("data-target", "modal1");
+    
+                var title = $("<div>").text(artic.title).addClass("collapsible-header");
+    
+                var buttonDiv = $("<div>").attr("data-id", artic._id).append(deleteButton).append(noteButton)
+    
+                var span = $("<a>").attr("href", artic.link).attr("target", "_blank").append($("<span>").text(artic.summary));
+                var body = $("<div>").addClass("collapsible-body").append(span).append(buttonDiv);
+    
+                $li.append(title).append(body);
+    
+                return $li;
+            });
+            $("#savedResults").append($saves);
+        }
+
+        else {
+            var $li = $("<li>");
+
+            var title = $("<h5>").text("No Saved Articles. Go To The Home Page and Get Scraping!").addClass("center-align");
+
+            $li.append(title);
+            $("#savedResults").append($li);
+        }
+
+    });
+};
+
