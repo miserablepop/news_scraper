@@ -4,7 +4,7 @@ var cheerio = require("cheerio");
 
 var router = express.Router();
 
-var db = ("../models");
+var db = require("../models");
 
 
 router.get("/", function(req, res){
@@ -13,19 +13,34 @@ router.get("/", function(req, res){
 
 router.get("/scrape", function(req, res){
 
-    axios.get("https://www.nytimes.com").then(function(res){
-        var $ = cheerio.load(res.data);
-        $("article").each(function(i, element){
+    axios.get("https://www.npr.org/").then(function(response){
+        var $ = cheerio.load(response.data);
+
+        $(".story-text").each(function(i, element) {
+
             var result = {};
 
             result.title = $(this)
-                .children("h2 span")
+                .find(".title")
                 .text();
-            result.link = $(this)
-                .children("a")
-                .attr("href");
 
-            db.Article.create(results)
+            console.log("What's the result title? " + result.title);
+
+            result.link = $(this)
+                .find(".title")
+                .parent()
+                .attr("href");
+            
+            db.Article.remove({}, function(err) {
+                if (err) {
+                    console.log(err)
+                }
+                else {
+                    res.end('success')
+                }
+            });
+
+            db.Article.create(result)
                 .then(function(dbArticle){
                     console.log(dbArticle);
                 })
@@ -34,7 +49,7 @@ router.get("/scrape", function(req, res){
                 });
         });
 
-        res.json(dbArticle);
+        res.send("Scrape Complete");
     })
 })
 
