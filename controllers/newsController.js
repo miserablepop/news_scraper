@@ -159,5 +159,44 @@ router.get("/api/saved/:id", function (req, res) {
         });
 });
 
+//Route to find specific article for saving
+router.delete("/api/articles/:id", function (req, res) {
+    db.Article.remove({ _id: req.params.id })
+        .then(function (dbArticle) {
+            // If we were able to successfully find Articles, send them back to the client
+            res.json(dbArticle);
+        })
+        .catch(function (err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+});
+
+//Route to find specific article for saving
+router.delete("/api/notes/:id", function (req, res) {
+    db.Note.remove({ _id: req.params.id })
+        .then(function (dbNote) {
+            // If we were able to successfully find Articles, send them back to the client
+            res.json(dbNote);
+        })
+        .catch(function (err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+});
+
+//Route to find specific article for saving
+router.delete("/api/saved/:id", function (req, res) {
+    db.Save.remove({ _id: req.params.id })
+        .then(function (dbArticle) {
+            // If we were able to successfully find Articles, send them back to the client
+            res.json(dbArticle);
+        })
+        .catch(function (err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+});
+
 // Export routes for server.js to use.
 module.exports = router;
