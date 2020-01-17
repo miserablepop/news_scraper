@@ -25,7 +25,7 @@ If a user comes to the site, with no articles appearing, that user can select th
 ### Clear Scraped Articles
 If the articles seem outdated, the user can choose to clear the articles. This will clear the queue and allow the user to "re-scrape" new articles.
 
-
+![clear-scraped](/public/images/clearScraped.png)
 
 <b>News Scraper is deployed to Heroku:</b> https://npr-mongodb-scraper.herokuapp.com/
 
