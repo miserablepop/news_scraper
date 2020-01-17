@@ -8,10 +8,14 @@ Upon visiting the site (see link below), a user will see a navigation bar. This 
 ### Home 
 Home page will display either no articles or a list of articles that have been recently scraped. If there are articles, a user can click on one and choose to save it for future reference.
 
+![homepage](/public/images/homepage.png)
+
 ### Saved Articles
 This page will display all the articles a user has chosen to save for future reference. Here, unlike the home page, a user can click on an article to either: add a note or delete it from the saved queue.
 
 If the user selects to add a note, a modal will appear for the user to enter their article note.
+
+![saved-articles](/public/images/saved.png)
 
 ### Scrape New Articles
 If a user comes to the site, with no articles appearing, that user can select the button to scrape new articles. The application will retrieve recent articles from NPR and display them. The user can then proceed to save the articles for future reference.
