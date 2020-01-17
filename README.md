@@ -20,6 +20,8 @@ If the user selects to add a note, a modal will appear for the user to enter the
 ### Scrape New Articles
 If a user comes to the site, with no articles appearing, that user can select the button to scrape new articles. The application will retrieve recent articles from NPR and display them. The user can then proceed to save the articles for future reference.
 
+![scraped-articles](/public/images/scrape.png)
+
 ### Clear Scraped Articles
 If the articles seem outdated, the user can choose to clear the articles. This will clear the queue and allow the user to "re-scrape" new articles.
 
